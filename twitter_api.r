@@ -1,3 +1,5 @@
+http://davetang.org/muse/2013/04/06/using-the-r_twitter-package/
+
 #install the necessary packages
 install.packages("twitteR")
 install.packages("wordcloud")
