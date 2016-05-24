@@ -18,7 +18,6 @@ for (i in 1:length(sunArtist)) {
   tweets<- searchTwitter(mydata[[1]], n=1500)
 }
 
-r_stats<- searchTwitter(mydata[[1]], n=1500)
 #save text
 r_stats_text <- sapply(r_stats, function(x) x$getText())
 #create corpus
