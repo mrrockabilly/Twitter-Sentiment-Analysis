@@ -8,15 +8,17 @@ install.packages("tm")
 library("twitteR")
 library("wordcloud")
 library("tm")
- 
+
 #necessary file for Windows
 download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.pem")
  
+df = read.table("credentials.csv", header = TRUE)
+
 #to get your consumerKey and consumerSecret see the twitteR documentation for instructions
-consumer_key <- 'your key'
-consumer_secret <- 'your secret'
-access_token <- 'your access token'
-access_secret <- 'your access secret'
+consumer_key <- df$credentials[[1]]
+consumer_secret <- df$credentials[[2]]
+access_token <- df$credentials[[3]]
+access_secret <- df$credentials[[4]]
 setup_twitter_oauth(consumer_key,
                     consumer_secret,
                     access_token,

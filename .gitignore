@@ -1,4 +1,4 @@
+credentials.r
 credentials.txt
 .DS_Store
-
-
+.httr-oauth
