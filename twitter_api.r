@@ -11,26 +11,14 @@ setup_twitter_oauth(consumer_key,
                     access_token,
                     access_secret)
  
-#the cainfo parameter is necessary only on Windows
-r_stats <- searchTwitter("#Rstats", n=1500)
-#should get 1500
-length(r_stats)
-#[1] 1500
- 
-#save text
-r_stats_text <- sapply(r_stats, function(x) x$getText())
- 
-#create corpus
-r_stats_text_corpus <- Corpus(VectorSource(r_stats_text))
- 
-#clean up
-r_stats_text_corpus <- tm_map(r_stats_text_corpus, content_transformer(tolower)) 
-r_stats_text_corpus <- tm_map(r_stats_text_corpus, removePunctuation)
-r_stats_text_corpus <- tm_map(r_stats_text_corpus, function(x)removeWords(x,stopwords()))
-wordcloud(r_stats_text_corpus)
- 
-#alternative steps if you're running into problems 
-r_stats<- searchTwitter("#Rstats", n=1500, cainfo="cacert.pem")
+sunArtist = read.table("rockabilly.txt", header = TRUE)
+sunArtist=t(sunArtist)
+
+for (i in 1:length(sunArtist)) {
+  tweets<- searchTwitter(mydata[[1]], n=1500)
+}
+
+r_stats<- searchTwitter(mydata[[1]], n=1500)
 #save text
 r_stats_text <- sapply(r_stats, function(x) x$getText())
 #create corpus
