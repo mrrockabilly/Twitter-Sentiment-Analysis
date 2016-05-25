@@ -4,10 +4,8 @@ library("twitteR")
 library("wordcloud")
 library("tm")
 library("textcat")
-
 require(plyr)
 require(stringr)
-
 source("credentials.r")
 source("score_sentiment.r")
 
@@ -32,6 +30,9 @@ for (i in 1:length(sunArtist)) {
 
 text = laply(allTweets, function(t) t$getText() )
 scores = score.sentiment(text, pos.words, neg.words, .progress='text')
+
+allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
+write.csv(allTweets.df, file = "twitter_data.csv")
 
 #save text
 r_stats_text <- sapply(r_stats, function(x) x$getText())
