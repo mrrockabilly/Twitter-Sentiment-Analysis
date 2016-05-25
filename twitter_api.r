@@ -5,6 +5,8 @@ library("wordcloud")
 library("tm")
 source("credentials.r")
 source("score_sentiment.r")
+pos.words = scan('positive-words.txt', what='character', comment.char=';')
+neg.words = scan('negative-words.txt', what='character', comment.char=';')
 
 #to get your consumerKey and consumerSecret see the twitteR documentation for instructions
 setup_twitter_oauth(consumer_key,
