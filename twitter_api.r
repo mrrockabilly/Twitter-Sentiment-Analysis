@@ -3,8 +3,14 @@
 library("twitteR")
 library("wordcloud")
 library("tm")
+library("textcat")
+
+require(plyr)
+require(stringr)
+
 source("credentials.r")
 source("score_sentiment.r")
+
 pos.words = scan('positive-words.txt', what='character', comment.char=';')
 neg.words = scan('negative-words.txt', what='character', comment.char=';')
 
