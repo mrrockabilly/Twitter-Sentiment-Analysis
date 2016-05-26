@@ -22,7 +22,7 @@ sunArtist=t(sunArtist)
 allTweets = vector(length=0)
 
 for (i in 1:length(sunArtist)) {
-  current_tweets<- searchTwitter(mydata[[i]], n=15)
+  current_tweets<- searchTwitter(mydata[[i]], n=1500)
   allTweets = c(allTweets,current_tweets)
 }
 

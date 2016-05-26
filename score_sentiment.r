@@ -7,7 +7,6 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   # "l" + "a" + "ply" = "laply":
   scores = laply(sentences, function(sentence, pos.words, neg.words) {
     sentence = iconv(sentence, "UTF8", "ASCII", sub="")
-    if (textcat(sentence) == "english"){
     # clean up sentences with R's regex-driven global substitute, gsub():
     sentence = gsub('[[:punct:]]', '', sentence)
     sentence = gsub('[[:cntrl:]]', '', sentence)
@@ -31,11 +30,7 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
     
     # and conveniently enough, TRUE/FALSE will be treated as 1/0 by sum():
     score = sum(pos.matches) - sum(neg.matches)
-    }
-    else {
-      score = 0
-    }
-    
+
     return(score)
   }, pos.words, neg.words, .progress=.progress )
   
