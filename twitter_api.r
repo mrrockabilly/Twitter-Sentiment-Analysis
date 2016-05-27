@@ -17,7 +17,7 @@ setup_twitter_oauth(consumer_key,
                     access_secret)
 
 print("Reading in search phrases.")
-searchTerms = read.table("rockabilly.txt", header = TRUE)
+searchTerms = read.table("queries.txt", header = TRUE)
 searchTerms=t(searchTerms)
 
 allTweets = vector(length=0)
