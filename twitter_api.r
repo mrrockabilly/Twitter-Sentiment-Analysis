@@ -23,8 +23,8 @@ searchTerms=t(searchTerms)
 allTweets = vector(length=0)
 
 print("Searching Twitter")
-for (i in 1:length(sunArtist)) {
-  current_tweets<- searchTwitter(searchTerms[[i]], n=500)
+for (i in 1:length(searchTerms)) {
+  current_tweets<- searchTwitter(searchTerms[[i]], n=5)
   allTweets = c(allTweets,current_tweets)
 }
 

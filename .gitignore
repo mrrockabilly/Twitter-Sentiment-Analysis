@@ -3,3 +3,5 @@ credentials.txt
 .DS_Store
 .httr-oauth
 *.csv
+.Rhistory
+
