@@ -6,6 +6,7 @@ require(plyr)
 require(stringr)
 source("credentials.r")
 source("score_sentiment.r")
+source("score_language.R")
 
 pos.words = scan('positive-words.txt', what='character', comment.char=';')
 neg.words = scan('negative-words.txt', what='character', comment.char=';')
@@ -30,7 +31,10 @@ for (i in 1:length(searchTerms)) {
 
 print("Performing sentiment analysis.")
 text = laply(allTweets, function(t) t$getText() )
-scores = score.sentiment(text, pos.words, neg.words, .progress='text')
+sentiment_scores = score.sentiment(text, pos.words, neg.words, .progress='text')
+
+print("Performing language analysis.")
+language_scores = score.language(text, .progress='text')
 
 print("Saving data to CSV.")
 allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
