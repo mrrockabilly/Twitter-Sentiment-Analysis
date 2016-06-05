@@ -32,9 +32,11 @@ for (i in 1:length(searchTerms)) {
 print("Performing sentiment analysis.")
 text = laply(allTweets, function(t) t$getText() )
 sentiment_scores = score.sentiment(text, pos.words, neg.words, .progress='text')
+allTweets.df$sentScore <- sentiment_scores$score
 
 print("Performing language analysis.")
 language_scores = score.language(text, .progress='text')
+allTweets.df$langScore <- language_scores$score
 
 print("Saving data to CSV.")
 allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
