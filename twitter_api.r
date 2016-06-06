@@ -5,8 +5,8 @@ library("textcat")
 require(plyr)
 require(stringr)
 source("credentials.r")
-source("score_sentiment.r")
-source("score_language.R")
+source("text_functions.r")
+
 
 pos.words = scan('positive-words.txt', what='character', comment.char=';')
 neg.words = scan('negative-words.txt', what='character', comment.char=';')
@@ -41,4 +41,3 @@ allTweets.df$langScore <- language_scores$score
 print("Saving data to CSV.")
 allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
 write.csv(allTweets.df, file = "twitter_data.csv")
-
