@@ -29,6 +29,8 @@ for (i in 1:length(searchTerms)) {
   allTweets = c(allTweets,current_tweets)
 }
 
+allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
+
 print("Performing sentiment analysis.")
 text = laply(allTweets, function(t) t$getText() )
 sentiment_scores = score.sentiment(text, pos.words, neg.words, .progress='text')
@@ -39,5 +41,4 @@ language_scores = score.language(text, .progress='text')
 allTweets.df$langScore <- language_scores$score
 
 print("Saving data to CSV.")
-allTweets.df = ldply(allTweets, function(t) t$toDataFrame())
 write.csv(allTweets.df, file = "twitter_data.csv")
