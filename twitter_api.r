@@ -1,3 +1,7 @@
+### Please make updates to credentials file before running this script.
+### Change queries.txt to your desired search terms.
+### This script may have some errors if run on a Windows machine. A PEM file may be needed.
+
 library("twitteR")
 library("wordcloud")
 library("tm")
@@ -25,7 +29,7 @@ allTweets = vector(length=0)
 
 print("Searching Twitter")
 for (i in 1:length(searchTerms)) {
-  current_tweets<- searchTwitter(searchTerms[[i]], n=5)
+  current_tweets<- searchTwitter(searchTerms[[i]], n=500)
   allTweets = c(allTweets,current_tweets)
 }
 
