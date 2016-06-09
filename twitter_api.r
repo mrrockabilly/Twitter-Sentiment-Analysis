@@ -30,6 +30,8 @@ allTweets = vector(length=0)
 print("Searching Twitter")
 for (i in 1:length(searchTerms)) {
   current_tweets<- searchTwitter(searchTerms[[i]], n=500)
+  #If using a Windows machine the cainfo parameter is necessary.
+  #current_tweets <- searchTwitter(searchTerms[[i]], n=500, cainfo="cacert.pem")
   allTweets = c(allTweets,current_tweets)
 }
 
