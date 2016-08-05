@@ -3,7 +3,6 @@
 ### This script may have some errors if run on a Windows machine. A PEM file may be needed.
 
 library("twitteR")
-library("wordcloud")
 library("tm")
 library("textcat")
 require(plyr)
